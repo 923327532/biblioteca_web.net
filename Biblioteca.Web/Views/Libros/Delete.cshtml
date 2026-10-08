@@ -1,0 +1,14 @@
+@model Biblioteca.Web.Models.Libro
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Eliminar libro";
+}
+
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">Confirme la eliminacion del libro <strong>@Model.Titulo</strong>.</div>
+
+<form asp-action="Delete" asp-route-id="@Model.LibroId" method="post">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+</form>

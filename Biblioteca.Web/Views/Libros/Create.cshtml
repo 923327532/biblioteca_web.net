@@ -1,0 +1,17 @@
+@model Biblioteca.Web.Models.Libro
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Nuevo libro";
+}
+
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+    <partial name="_LibroFormulario" model="Model" />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,46 @@
+@model IEnumerable<Biblioteca.Web.Models.PrestamoReporte>
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "Reporte de prestamos";
+}
+
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+
+<form asp-action="Reporte" method="get" class="row g-2 mb-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-md-3">
+        <label for="desde" class="form-label">Desde</label>
+        <input id="desde" name="desde" type="date" value="@ViewData["Desde"]" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <label for="hasta" class="form-label">Hasta</label>
+        <input id="hasta" name="hasta" type="date" value="@ViewData["Hasta"]" class="form-control" />
+    </div>
+    <div class="col-md-6 align-self-end">
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </div>
+</form>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>Socio</th>
+            <th>DNI</th>
+            <th>Libro</th>
+            <th>Fecha limite</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var prestamo in Model)
+    {
+        <tr>
+            <td>@prestamo.Socio</td>
+            <td>@prestamo.DNI</td>
+            <td>@prestamo.Libro</td>
+            <td>@prestamo.FechaLimite.ToString("dd/MM/yyyy")</td>
+            <td>@prestamo.Estado</td>
+        </tr>
+    }
+    </tbody>
+</table>

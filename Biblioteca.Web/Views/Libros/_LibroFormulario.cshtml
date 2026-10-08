@@ -1,0 +1,26 @@
+@model Biblioteca.Web.Models.Libro
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+<div class="mb-3">
+    <label asp-for="Titulo" class="form-label"></label>
+    <input asp-for="Titulo" class="form-control" />
+    <span asp-validation-for="Titulo" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="ISBN" class="form-label"></label>
+    <input asp-for="ISBN" class="form-control" />
+    <span asp-validation-for="ISBN" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="AutorId" class="form-label">Autor</label>
+    <select asp-for="AutorId" asp-items="ViewBag.Autores" class="form-select">
+        <option value="">Seleccione un autor</option>
+    </select>
+    <span asp-validation-for="AutorId" class="text-danger"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="Ejemplares" class="form-label"></label>
+    <input asp-for="Ejemplares" class="form-control" />
+    <span asp-validation-for="Ejemplares" class="text-danger"></span>
+</div>
